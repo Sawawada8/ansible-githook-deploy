@@ -40,7 +40,3 @@ docker run --rm -i \
         ansible-playbook -i /ansible/hosts /ansible/playbooks/deploy.yml \
         --extra-vars $json \
         --extra-vars $ignore
-        # --extra-vars '{"ignore_files":["a", "b", "aaa*"]}' \
-        # --extra-vars '{"reg":"(aaa*)"}'
-        # --extra-vars '{"commit_files":["jfeif","feij"]}'
-#         # --extra-vars "@/ansible/var.json"
