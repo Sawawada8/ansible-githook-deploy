@@ -1,0 +1,7 @@
+[all:vars]
+ansibe_user=<sshUser>
+ansible_port=22
+ansible_ssh_private_key_file="/Key/<PEMファイル名>"
+
+[web]
+dev ansible_host=<環境のIP> ansible_user=<User>

@@ -1,0 +1,16 @@
+(deploy/*) |
+(tests/*) |
+(sh/*) |
+(docker/*) |
+(.vscode/*) |
+(.editorconfig) |
+(.prettierrc.js) |
+(.gitignore) |
+(composer.json) |
+(composer.lock) |
+(docker-compose.yml) |
+(package-lock.json) |
+(package.json) |
+(phpunit.xml) |
+(server.php) |
+(webpack.mix.js)

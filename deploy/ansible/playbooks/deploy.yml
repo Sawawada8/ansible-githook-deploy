@@ -1,0 +1,28 @@
+---
+- name: deploy application
+  hosts: dev
+  become: yes
+  tasks:
+    - name: デプロイしたファイル郡をログとして出力
+      shell: 'echo {{ root_dir ~ item | dirname }} >> {{ root_dir }}ansible-deploy.log'
+      when: item is not match(ignore_reg)
+      loop: '{{ commit_files  }}'
+
+    - name: ディレクトリの作成
+      file:
+        path: '{{ root_dir ~ item | dirname }}'
+        state: directory
+        owner: '{{ user }}'
+        group: '{{ user }}'
+        mode: '775'
+      when: item is not match(ignore_reg)
+      loop: '{{ commit_files }}'
+
+    - name:  ファイルコピーの作成
+      copy:
+        src: '/app/{{ item }}'
+        owner: '{{ user }}'
+        group: '{{ user }}'
+        dest: '{{ root_dir ~ item }}'
+      when: item is not match(ignore_reg)
+      loop: '{{ commit_files }}'

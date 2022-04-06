@@ -1,0 +1,3 @@
+---
+root_dir: <deploy_path ex.) /var/www/html/>
+user: <deploy_file_orner ex.) user_1>
