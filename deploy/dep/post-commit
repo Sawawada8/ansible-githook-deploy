@@ -1,0 +1,22 @@
+#!/bin/bash
+# files=`git status|grep -e "modified" -e "new file"|sed "s/new file:\(.*\)/\1/g"|sed "s/modified:\(.*\)/\1/g"|cut -f 2`
+
+# add されているファイル群を取得
+# files=$(git diff --cached --name-status | awk '$1 != "D" { print $2 }')
+# files=$(git diff-tree HEAD --name-only | awk "NR!=1 {print}")
+
+# commint 後にcommitされたファイルたちを取得
+# files=$(git diff-tree HEAD -r | awk "NR!=1 {print}" | awk '{print $6}')
+
+# echo \n
+# echo 'post_commit'
+# echo \n
+# echo $files
+# echo \n
+
+files=fjiei feifjei feifeif fjeifjei feifjeifjeifeifei
+
+EXECDIR=$( cd "$( dirname "$0" )" && pwd -P )
+
+$($EXECDIR/../../deploy/ansible/deploy.sh $files)
+

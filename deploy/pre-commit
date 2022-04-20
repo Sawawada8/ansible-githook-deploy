@@ -1,0 +1,23 @@
+#!/bin/bash
+# read -p "テストを実行しますか? (y/N): " yn
+# case "$yn" in [yY]*)
+#     echo \n; echo 'テストを実行し、pushします。'; echo \n;
+#     sh/t ;; *)
+#     echo \n; echo 'テストを実行せずにpushします。'; exit ;;
+# esac
+
+
+
+# STR=ubuntu debian redhat suse
+# ARY=(`echo $str`)   # 配列に格納
+
+
+
+# X=("hello world" "goodnight moon")
+X=($@)
+printf '{"commit":'
+printf '%s
+' "${X[@]}" | jq -R . | jq -s .
+printf '}'
+
+
